@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
         driver = new ChromeDriver(options);}
 
         public void stopDriver() {driver.quit();}
+
 }
 
 
