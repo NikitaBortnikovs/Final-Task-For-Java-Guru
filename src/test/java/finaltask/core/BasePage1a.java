@@ -1,4 +1,4 @@
-package finaltask.pages;
+package finaltask.core;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
         public static ChromeDriver driver;
         public static void  startDriver() {
 
-        String path = "C:\\Users\\nbort\\IdeaProjects\\AnotherProject\\src\\test\\java\\finaltask\\drivers\\chromedriver.exe";
+        String path = "C:\\Users\\nbort\\IdeaProjects\\AnotherProject\\src\\test\\java\\finaltask\\core\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", path);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");

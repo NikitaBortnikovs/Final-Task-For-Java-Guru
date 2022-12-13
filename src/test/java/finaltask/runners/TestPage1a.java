@@ -1,8 +1,8 @@
-package finaltask.testing;
+package finaltask.runners;
 import finaltask.models.ProductModel;
 import finaltask.models.UserDataModel;
-import finaltask.pages.AfterTestPage;
-import finaltask.pages.BasePage1a;
+import finaltask.pages.LogOutAfterTestPage;
+import finaltask.core.BasePage1a;
 import finaltask.pages.CartPage1a;
 import finaltask.pages.HomePage1a;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ public class TestPage1a extends HomePage1a {
       ProductModel productModel = new ProductModel();
       UserDataModel userDataModel = new UserDataModel();
       BasePage1a basePage1a = new BasePage1a();
-      AfterTestPage afterTestPage = new AfterTestPage();
+      LogOutAfterTestPage afterTestPage = new LogOutAfterTestPage();
 
       SoftAssert softAssert = new SoftAssert();
       JavascriptExecutor js = (JavascriptExecutor) driver;

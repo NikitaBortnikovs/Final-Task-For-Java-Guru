@@ -1,8 +1,9 @@
 package finaltask.pages;
 
+import finaltask.core.BasePage1a;
 import org.openqa.selenium.By;
 
-public class HomePage1a extends BasePage1a{
+public class HomePage1a extends BasePage1a {
 
 
     private static final String baseUrll = "https://www.1a.lv/";

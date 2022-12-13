@@ -2,9 +2,10 @@ package finaltask.steps;
 
 import finaltask.models.ProductModel;
 import finaltask.models.UserDataModel;
-import finaltask.pages.BasePage1a;
+import finaltask.core.BasePage1a;
 import finaltask.pages.CartPage1a;
 import finaltask.pages.HomePage1a;
+import finaltask.pages.LogOutAfterTestPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,14 +14,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
 
-import static finaltask.pages.BasePage1a.driver;
+import static finaltask.core.BasePage1a.driver;
 
 
-public class Stepdefs {
+public class Steps {
     HomePage1a homePage1a = new HomePage1a();
     BasePage1a basePage1a= new BasePage1a();
     JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -29,6 +29,8 @@ public class Stepdefs {
     CartPage1a cartPage1a = new CartPage1a();
     SoftAssert softAssert = new SoftAssert();
     UserDataModel userDataModel = new UserDataModel();
+
+    LogOutAfterTestPage logOutAfterTestPage = new LogOutAfterTestPage();
 
 
 
@@ -108,7 +110,7 @@ public class Stepdefs {
         Thread.sleep(2500);
     }
 
-    @Given("User searches for a specific product in search bad")
+    @Then("User searches for a specific product in search bad")
     public void userSearchesForASpecificProductInSearchBad() {
         homePage1a.searchForProd(productModel.productNameForSearching);
     }
@@ -141,7 +143,7 @@ public class Stepdefs {
         homePage1a.clickOnIphone();
     }
 
-    @Given("User appeard on product page, scrolls down")
+    @Then("User appeard on product page, scrolls down")
     public void userAppeardOnProductPageScrollsDown() {
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
     }
@@ -175,9 +177,10 @@ public class Stepdefs {
         cartPage1a.clickOnBuyButt();
     }
 
-    @Given("Cart page where users starts to fill the email to log in")
+    @Then("Cart page where users starts to fill the email to log in")
     public void cartPageWhereUsersStartsToFillTheEmailToLogIn() {
         cartPage1a.clickOnEmailField(userDataModel.CusLoginEmail);
+
     }
 
     @And("Fill the field with password")
@@ -250,8 +253,31 @@ public class Stepdefs {
         softAssert.assertEquals(productModel.productPrice, priceEnd,"!!!   Given price  is  incorrect");
     }
 
+
+
+    @And("Click on {int}a logo to open home page")
+    public void clickOnALogoToOpenHomePage(int arg0) {
+        logOutAfterTestPage.clickOnLogo();
+
+    }
+
+    @And("Clicks on profile")
+    public void clicksOnProfile() {
+        logOutAfterTestPage.clickOnProfileButt();
+
+
+    }
+
+    @And("Click on deleta user data for further tests.")
+    public void clickOnDeletaUserDataForFurtherTests() {
+        logOutAfterTestPage.clickOnDeleteDataBut();
+    }
+
     @And("Closes the window.")
     public void closesTheWindow() {
         basePage1a.stopDriver();
     }
 }
+
+
+
